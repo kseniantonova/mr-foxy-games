@@ -1,0 +1,450 @@
+:root {
+  --cream: #fffaf0;
+  --paper: #fffdf8;
+  --navy: #23334a;
+  --muted: #69717b;
+  --fox: #d85f3d;
+  --fox-dark: #ad402d;
+  --line: #eadfce;
+  --white: #ffffff;
+  --shadow: 0 12px 32px rgba(55, 43, 31, 0.09);
+  --shadow-hover: 0 20px 42px rgba(55, 43, 31, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 0;
+  overflow-x: hidden;
+  background-color: var(--cream);
+  background-image: url("images/mr-foxy-site-background.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--navy);
+  font-family: ui-rounded, "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 15px clamp(20px, 4vw, 42px);
+  background: transparent;
+}
+
+body > .site-header {
+  position: relative;
+}
+
+body > .site-header::after {
+  position: absolute;
+  right: clamp(20px, 4vw, 42px);
+  bottom: 0;
+  left: clamp(20px, 4vw, 42px);
+  height: 1px;
+  background: rgba(190, 146, 91, 0.2);
+  content: "";
+}
+
+.logo,
+.hero-name {
+  color: var(--fox-dark);
+  font-weight: 800;
+  letter-spacing: 0.09em;
+}
+
+.logo {
+  display: none;
+}
+
+.nav-list {
+  display: flex;
+  gap: clamp(22px, 3vw, 36px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+}
+
+.site-header nav {
+  margin-left: auto;
+}
+
+.nav-list a {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.nav-list a {
+  position: relative;
+  display: inline-block;
+  padding: 7px 2px;
+  transition: color 180ms ease;
+}
+
+.nav-list a::after {
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--fox);
+  content: "";
+  transform: scaleX(0);
+  transition: transform 180ms ease;
+}
+
+.nav-list a:hover,
+.nav-list a:focus-visible {
+  color: var(--fox-dark);
+}
+
+.nav-list a:hover::after,
+.nav-list a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.nav-list a:focus-visible,
+.logo:focus-visible {
+  border-radius: 5px;
+  outline: 3px solid rgba(216, 95, 61, 0.28);
+  outline-offset: 3px;
+}
+
+.hero {
+  padding: clamp(48px, 6vw, 72px) clamp(20px, 4vw, 40px) clamp(56px, 7vw, 84px);
+  background: transparent;
+  color: var(--navy);
+  text-align: center;
+}
+
+.hero-name {
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 4px 11px;
+  background: rgba(255, 250, 240, 0.78);
+  border-radius: 8px;
+  color: var(--navy);
+  font-size: 0.94rem;
+}
+
+.hero h1 {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 7px 18px 9px;
+  background: var(--fox);
+  border: 2px solid rgba(165, 59, 37, 0.45);
+  border-radius: 15px;
+  box-shadow: 0 6px 0 rgba(139, 66, 39, 0.14), 0 14px 30px rgba(102, 68, 34, 0.1);
+  color: var(--white);
+  font-size: clamp(2.25rem, 6vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: 0.035em;
+  text-shadow: 0 2px 0 rgba(116, 42, 29, 0.18);
+}
+
+.hero-subtitle {
+  margin: 22px 0 5px;
+  color: var(--navy);
+  font-size: clamp(1rem, 2vw, 1.22rem);
+  font-weight: 800;
+}
+
+.hero-text {
+  margin: 0;
+  color: #5f6670;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 0.98rem;
+}
+
+.games-section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 46px) clamp(20px, 4vw, 42px) clamp(64px, 8vw, 96px);
+}
+
+.games-section > h2 {
+  margin: 0 0 28px;
+  font-size: clamp(1.65rem, 3vw, 2rem);
+  line-height: 1.2;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(22px, 3vw, 30px);
+  align-items: stretch;
+}
+
+.game-card {
+  --accent: #793f42;
+  --accent-dark: #562c34;
+  --card-bg: #fffaf1;
+  --image-bg: #ecdfcd;
+  --pill-bg: #f3e9d9;
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid rgba(86, 44, 52, 0.14);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  transition: box-shadow 240ms ease, transform 240ms ease;
+}
+
+.game-card:nth-child(2) {
+  --accent: #3f7d62;
+  --accent-dark: #28604a;
+  --card-bg: #f7fcf5;
+  --image-bg: #dceee3;
+  --pill-bg: #e3f1e6;
+  border-color: rgba(63, 125, 98, 0.16);
+}
+
+.game-card:nth-child(3) {
+  --accent: #b45f49;
+  --accent-dark: #8d493b;
+  --card-bg: #fff9f0;
+  --image-bg: #e9e4d7;
+  --pill-bg: #f3e6d8;
+  border-color: rgba(180, 95, 73, 0.16);
+}
+
+.game-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-6px);
+}
+
+.card-image {
+  position: relative;
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--image-bg);
+  border-radius: 23px 23px 0 0;
+}
+
+.card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 400ms ease;
+}
+
+.game-card:hover .card-image img {
+  transform: scale(1.035);
+}
+
+.card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.category {
+  margin: 0 0 7px;
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.game-card h3 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(1.35rem, 2.1vw, 1.6rem);
+  line-height: 1.2;
+}
+
+.topic {
+  min-height: 24px;
+  margin: 6px 0 19px;
+  color: var(--muted);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 0.96rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 5px 10px;
+  background: var(--pill-bg);
+  border: 1px solid color-mix(in srgb, var(--accent) 12%, transparent);
+  border-radius: 999px;
+  color: var(--accent-dark);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.play-button {
+  display: block;
+  width: 100%;
+  margin-top: auto;
+  padding: 13px 18px;
+  border: 0;
+  border-radius: 13px;
+  background: var(--accent);
+  box-shadow: 0 4px 0 var(--accent-dark);
+  color: var(--white);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-align: center;
+  transition: background-color 180ms ease, box-shadow 120ms ease, transform 120ms ease;
+}
+
+.play-button:hover {
+  background: var(--accent-dark);
+}
+
+.play-button:active {
+  box-shadow: 0 1px 0 var(--accent-dark);
+  transform: translateY(3px);
+}
+
+.play-button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  outline-offset: 4px;
+}
+
+.about-section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 42px) clamp(58px, 7vw, 82px);
+  text-align: center;
+}
+
+.about-section h2 {
+  margin: 0 0 14px;
+  color: var(--fox-dark);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.about-section p {
+  margin: 6px 0;
+  color: var(--muted);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 0.96rem;
+}
+
+footer {
+  padding: 30px 24px 34px;
+  background: rgba(243, 234, 220, 0.92);
+  border-top: 1px solid var(--line);
+  color: #77716b;
+  text-align: center;
+}
+
+footer p {
+  margin: 2px 0;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 0.86rem;
+}
+
+.footer-name {
+  color: #4b4a48;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+@media (max-width: 1000px) {
+  .games-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .games-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .site-header {
+    padding: 16px 18px;
+  }
+
+  .nav-list {
+    gap: 18px;
+  }
+
+  .hero {
+    padding: 46px 18px 56px;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(1.75rem, 9vw, 2.25rem);
+  }
+
+  .games-section {
+    padding: 28px 18px 62px;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    background-position: 38% top;
+    background-size: auto 100%;
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-header {
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .game-card,
+  .card-image img,
+  .play-button,
+  .nav-list a,
+  .nav-list a::after {
+    transition: none;
+  }
+}
